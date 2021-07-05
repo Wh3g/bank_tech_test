@@ -23,4 +23,4 @@ In building this program, I followed Test-Driven-Development practices. I would 
 
 To see a screenshot of the program being used see below:
 
-![alt text](https://github.com/Wh3g/bank_tech_test/images/bank_tech_test_irb.png)
+![alt text](https://github.com/Wh3g/bank_tech_test/blob/main/images/bank_tech_test_irb.png)
