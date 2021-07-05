@@ -20,3 +20,7 @@ This program is tested using RSpec, which means that you will be able to test th
 ## Approach
 
 In building this program, I followed Test-Driven-Development practices. I would write tests that my program would need to pass and then write code to pass the tests in the simplest way. I started by building the `#deposit` and `#withdraw` functionality, first implementing the feature to add and subtract from the `@balance`, then moving on to saving each transaction in an array. After that was done, I was then able to have `#bank_statement` return the transaction records using array manipulation.
+
+To see a screenshot of the program being used see below:
+
+![alt text](https://github.com/Wh3g/bank_tech_test/images/bank_tech_test_irb.png)
