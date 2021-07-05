@@ -1,6 +1,6 @@
 class BankAccount
   attr_reader :balance, :transactions
-  
+
   def initialize
     @balance = 0.00
     @transactions = []
@@ -21,13 +21,14 @@ class BankAccount
   end
 
   private
+
   def decimal_places(number)
     '%.2f' % number
   end
 
   def date_format(date)
     2.times do
-      date["-"] = "/"
+      date['-'] = '/'
     end
     date
   end
