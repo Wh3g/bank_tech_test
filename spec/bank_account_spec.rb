@@ -12,4 +12,12 @@ describe BankAccount do
       expect(subject.balance).to eq 100
     end
   end
+
+  describe "#withdraw" do
+    it "decreases the bank balance" do
+      subject.deposit(100)
+      subject.withdraw(50)
+      expect(subject.balance).to eq 50
+    end
+  end
 end
