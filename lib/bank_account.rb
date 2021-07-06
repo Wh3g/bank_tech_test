@@ -1,9 +1,10 @@
 class BankAccount
   attr_reader :balance, :transactions
 
-  def initialize
+  def initialize(statement = BankStatement.new)
     @balance = 0.00
     @transactions = []
+    @statement = statement
   end
 
   def deposit(amount, date)
@@ -14,5 +15,9 @@ class BankAccount
   def withdraw(amount, date)
     @balance -= amount
     @transactions << { date: date, debit: amount, balance: @balance }
+  end
+
+  def print_statement
+    @statement.show(@transactions)
   end
 end

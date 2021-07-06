@@ -40,6 +40,12 @@ describe BankAccount do
           expect(subject.transactions[-1]).to eq(@withdrawal_hash)
         end
       end
+
+      describe '#statement' do
+        it 'returns the bank statement' do
+          expect(subject.print_statement).to eq("date || credit || debit || balance\n#{@withdrawal_str}\n#{@deposit_str}")
+        end
+      end
     end
   end
 end
