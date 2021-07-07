@@ -4,6 +4,16 @@ class BankStatement
   end
 
   private
+  def str_list(transactions)
+    array = []
+    balance = 0.0
+    transactions.each do |record|
+      balance += record[:credit] unless record[:credit].nil?
+      balance -= record[:debit] unless record[:debit].nil?
+      array << "#{date_format(record[:date])} ||#{debit_credit_format(record[:credit])}||#{debit_credit_format(record[:debit])}|| #{decimal_places(balance)}"
+    end
+    array.reverse.join("\n")
+  end
 
   def debit_credit_format(number)
     if number.nil?
@@ -22,13 +32,5 @@ class BankStatement
       date['-'] = '/'
     end
     date
-  end
-
-  def str_list(transactions)
-    array = []
-    transactions.each do |record|
-      array << "#{date_format(record[:date])} ||#{debit_credit_format(record[:credit])}||#{debit_credit_format(record[:debit])}|| #{decimal_places(record[:balance])}"
-    end
-    array.reverse.join("\n")
   end
 end
