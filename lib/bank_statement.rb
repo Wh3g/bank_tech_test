@@ -8,8 +8,7 @@ class BankStatement
     array = []
     balance = 0.0
     transactions.each do |record|
-      balance += record[:credit] unless record[:credit].nil?
-      balance -= record[:debit] unless record[:debit].nil?
+      balance = calc_balance(balance, record)
       array << "#{date_format(record[:date])} ||#{debit_credit_format(record[:credit])}||#{debit_credit_format(record[:debit])}|| #{decimal_places(balance)}"
     end
     array.reverse.join("\n")
@@ -32,5 +31,11 @@ class BankStatement
       date['-'] = '/'
     end
     date
+  end
+
+  def calc_balance(balance, record)
+    balance += record[:credit] unless record[:credit].nil?
+    balance -= record[:debit] unless record[:debit].nil?
+    balance
   end
 end
